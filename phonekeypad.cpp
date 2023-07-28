@@ -23,7 +23,7 @@ using namespace std;
 
         getAllCombinations(digits,answer,index+1,length);
 
-        answer = answer.substr(0,answer.length());
+        answer = answer.substr(0,answer.length()-1);
 
         }
 

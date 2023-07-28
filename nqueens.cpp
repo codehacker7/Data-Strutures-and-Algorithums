@@ -94,7 +94,7 @@ bool nqueens(int board[100][100],int n,int rows){
         }
 
 
-            board[row][j] = 0;  // if no then it is an issue so I would recommend you to remove queen backtracking
+        board[row][j] = 0;  // if no then it is an issue so I would recommend you to remove queen backtracking
     
     }
 
