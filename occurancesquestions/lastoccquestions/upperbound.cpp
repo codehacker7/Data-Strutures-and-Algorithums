@@ -28,6 +28,10 @@ int main(){
 
     }
     cout<<lo<<endl;
+    
+    //upper bound > target
+
+    // if you know upper bound to get last occ of target you can do upper bound - 1 also
 
 
 
