@@ -58,6 +58,31 @@ void sortList(ListNode* head) {
 
 
  }
+void removeNthFromEnd(ListNode* head, int n) {
+      
+        ListNode* a = head;
+        ListNode* b = head;
+
+        n--;
+        while(n){
+            b = b->next;
+            n--;
+        }
+       
+        // cout<<b->val<<endl;
+
+        while(b->next!=NULL){ // take care of b->next here !-= NULL
+         
+            a = a->next;
+            b = b->next;
+        }
+
+		cout<< a->val << endl;
+
+        
+    
+
+    }
 
 void deleteAtTail(Node* &head, Node* &tail){
 
