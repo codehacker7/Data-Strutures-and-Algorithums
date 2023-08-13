@@ -41,6 +41,24 @@ int lengthOfLL(Node * head){
 	return ct;
 }
 
+void sortList(ListNode* head) {
+
+
+        int n = LL(head);
+        
+    for(int i=0;i<n-1;i++){
+        for(ListNode* j=head;j->next!=NULL;j=j->next){
+            
+            if(((*j).val) > (j->next->val)){
+                swap((*j).val,j->next->val);
+            }
+        
+        }
+    }
+
+
+ }
+
 void deleteAtTail(Node* &head, Node* &tail){
 
     if(head == NULL) return;
