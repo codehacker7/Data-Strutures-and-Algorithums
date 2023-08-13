@@ -14,6 +14,14 @@ void mergeSortedArrays(int arr1[], int arr2[], int m, int n){
 		k--;j--;
 	}
 	}
+
+    // this code below is important not done in previous commit
+     while (j >= 0) {
+            nums1[k] = nums2[j];
+            k--;
+            j--;
+        }
+        
 }
 
 int main(){
