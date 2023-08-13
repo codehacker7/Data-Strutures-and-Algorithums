@@ -16,6 +16,20 @@ public:
 		next = ptr;
 	}
 };
+Node* middleNode(ListNode* head) {
+
+    Node *slow = head, *fast = head;
+
+        while(fast!=NULL && fast->next!=NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+	// while (head && head->next) {
+	//     slow = slow->next;
+	//     head = head->next->next;
+	// }
+	return slow;
+    }
 
 int lengthOfLL(Node * head){
 	if(head == NULL) return 0;
