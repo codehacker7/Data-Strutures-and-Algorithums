@@ -122,6 +122,23 @@ bool isCyclic(Node* l1, Node* l2){
 
 
 }
+
+ Node* reverseLLRec(Node*  curr, Node*  prev){
+
+        if(curr == NULL){
+            return prev;
+        }
+
+        Node* next = curr->next;
+
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+        return helper(curr,prev);
+
+         
+
+    }
  
 void removeNthFromEnd(Node* head, int n) {
       
