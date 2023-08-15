@@ -16,7 +16,7 @@ public:
 		next = ptr;
 	}
 };
-Node* middleNode(ListNode* head) {
+Node* middleNode(Node* head) {
 
     Node *slow = head, *fast = head;
 
@@ -41,7 +41,7 @@ int lengthOfLL(Node * head){
 	return ct;
 }
 
-void sortList(ListNode* head) {
+void sortList(Node* head) {
 
 
         int n = LL(head);
@@ -58,7 +58,33 @@ void sortList(ListNode* head) {
 
 
  }
-void removeNthFromEnd(ListNode* head, int n) {
+
+ Node* merge2sortedLinkedList(Node* head1,Node* head2){
+
+	if(head1 == NULL) return head2;
+	if(head2 == NULL) return head1;
+
+
+	Node* newHead = NULL;
+
+	if(head1->val < head2->val){
+		newHead = head1;
+	    newHead->next = merge2sortedLinkedList(head1->next,head2);
+	}
+	else{
+		newHead = head2;
+		newHead->next = merge2sortedLinkedList(head1,head2->next);
+
+	}
+
+	return newHead;
+
+
+
+
+
+ }
+void removeNthFromEnd(Node* head, int n) {
       
         ListNode* a = head;
         ListNode* b = head;
