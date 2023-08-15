@@ -59,6 +59,26 @@ void sortList(Node* head) {
 
  }
 
+ Node* mergeSortLinkedList(Node* head){
+
+	if(head == NULL || head->next == NULL) return head;
+
+	Node* mid = middleNode(head);
+
+	Node* temp = mid->next;
+	mid->next = NULL;
+	mid = temp;
+	
+	Node* l1 = mergeSortLinkedList(head);
+	Node* l2 = mergeSortLinkedList(mid);
+
+	return merge2sortedLinkedList(l1,l2);
+
+
+
+
+ }
+
  Node* merge2sortedLinkedList(Node* head1,Node* head2){
 
 	if(head1 == NULL) return head2;
@@ -79,11 +99,30 @@ void sortList(Node* head) {
 
 	return newHead;
 
+}
+
+
+bool isCyclic(Node* l1, Node* l2){
+
+	Node* slow = head, *fast = head;
+
+	while(fast!= NULL && fast->next != NULL){
+		
+		slow = slow->next;
+		fast = fast->next->next;
+		if(slow == fast){
+			return true;
+		}
+
+	}
+
+	return false;
 
 
 
 
- }
+}
+ 
 void removeNthFromEnd(Node* head, int n) {
       
         ListNode* a = head;
