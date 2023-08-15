@@ -148,6 +148,55 @@ Node* slow = head, *fast = head;
 
 }
 
+Node* addTwoNumbers(Node* head1, Node* head2) {
+      
+      int carry =0;
+      int totalsum = 0;
+      Node* newNode = new ListNode(-10);
+      Node* temp = newNode;
+      Node* l1 = head1;
+      Node* l2 = head2;
+    while(l1 != NULL && l2 != NULL){
+
+      totalsum = l1->val + l2->val + carry;
+      carry = totalsum/10;
+
+       newNode->next = new ListNode(totalsum%10);
+       l1 = l1->next;
+       l2 = l2->next;
+       newNode = newNode->next;
+
+    }
+
+    while(l1 != NULL){
+      
+      totalsum = l1->val + carry;
+      carry = totalsum/10;
+
+      
+       newNode->next = new ListNode(totalsum%10);
+          l1 = l1->next;
+      newNode = newNode->next;
+
+    }
+    while(l2 != NULL){
+         totalsum = l2->val + carry;
+      carry = totalsum/10;
+
+       newNode->next = new ListNode(totalsum%10);
+       l2 = l2->next;
+        newNode = newNode->next;
+
+    }
+    if(carry !=0){
+        newNode->next = new ListNode(carry%10);
+        carry = carry/10;
+        newNode = newNode->next;
+    }
+    return temp->next;
+   
+     }
+
  Node* reverseLLRec(Node*  curr, Node*  prev){
 
         if(curr == NULL){
