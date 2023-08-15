@@ -123,6 +123,31 @@ bool isCyclic(Node* l1, Node* l2){
 
 }
 
+
+void breakCycle(Node* & head){
+
+Node* slow = head, *fast = head;
+
+	while(fast!= NULL && fast->next != NULL){
+		
+		slow = slow->next;
+		fast = fast->next->next;
+		if(slow == fast){
+			break;
+		}
+
+	}
+	slow = head;
+
+	while(slow->next != fast->next){
+		slow = slow->next;
+		fast = fast->next;
+	}
+	cout<<"Cycle starts at "<<slow->next->val <<endl;
+	fast->next = NULL; /*THIS WILL BREAK THE CYCLE IN HERE*/
+
+}
+
  Node* reverseLLRec(Node*  curr, Node*  prev){
 
         if(curr == NULL){
@@ -138,7 +163,9 @@ bool isCyclic(Node* l1, Node* l2){
 
          
 
-    }
+}
+
+
  
 void removeNthFromEnd(Node* head, int n) {
       
