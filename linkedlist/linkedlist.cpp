@@ -139,7 +139,7 @@ Node* slow = head, *fast = head;
 	}
 	slow = head;
 
-	while(slow->next != fast->next){
+	while(slow != fast){
 		slow = slow->next;
 		fast = fast->next;
 	}
