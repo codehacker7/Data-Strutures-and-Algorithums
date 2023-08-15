@@ -102,6 +102,16 @@ void sortList(Node* head) {
 }
 
 
+ Node* mergeKLists(vector<Node*>& lists) {
+        
+		if(lists.size() == 0) return NULL;
+
+        for (int i = 1; i < lists.size(); i++) {
+            lists[0] = mergeTwoSortedLists(lists[0], lists[i]);
+        }
+        return lists[0];
+    }
+
 bool isCyclic(Node* l1, Node* l2){
 
 	Node* slow = head, *fast = head;
@@ -194,8 +204,8 @@ Node* addTwoNumbers(Node* head1, Node* head2) {
         newNode = newNode->next;
     }
     return temp->next;
-   
-     }
+
+ }
 
  Node* reverseLLRec(Node*  curr, Node*  prev){
 
