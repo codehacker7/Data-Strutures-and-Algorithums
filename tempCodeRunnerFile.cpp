@@ -1,1 +1,1 @@
-                // cout<<"low is "<<low<<endl;
+ cout<<"Temp is "<<temp<<endl;
