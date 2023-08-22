@@ -13,7 +13,6 @@
 
     for (int i = 0; i < n; i++) {
         while (!st.empty() && (heights[st.top()] >= heights[i])) {
-            left[i] = st.top();
             st.pop();
         }
         left[i] = st.empty() ? 0 : st.top() + 1;
