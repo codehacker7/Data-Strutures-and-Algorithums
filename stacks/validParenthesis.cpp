@@ -1,13 +1,15 @@
 #include<iostream>
+#include<stack>
+
 using namespace std;
 
-bool isValidPalindrome(string str){
+bool isValid(string str){
 
     stack<char> st;
 
     for(int i=0;i<str.length();i++){
         
-        if(str[i] == '(' || str[i] == "[" || str[i] == "{"){
+        if(str[i] == '(' || str[i] == '[' || str[i] == '{'){
             st.push(str[i]);
         }
         else if(!st.empty() && st.top() == '(' && str[i] == ')'){
@@ -40,14 +42,14 @@ bool isValidPalindrome(string str){
 
 int main(){
 
-    string str = "()[]{}";
-    str = "()";
+    string str ;
+    cin>>str;
 
 
-    if(isValidPalindrome(str)){
-        cout<<"It is valid"<<endl;
+    if(isValid(str)){
+        cout<<"true"<<endl;
     }else{
-         cout<<"It is not valid"<<endl;
+         cout<<"false"<<endl;
     }
 
 
