@@ -21,7 +21,7 @@ void mergeSortedArrays(int arr1[], int arr2[], int m, int n){
             k--;
             j--;
         }
-        
+		
 }
 
 int main(){
