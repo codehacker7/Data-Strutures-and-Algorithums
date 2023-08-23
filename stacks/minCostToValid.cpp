@@ -3,7 +3,7 @@ int findMinimumCost(string str) {
       stack<int> st;
 
     if(str.length()%2 !=0){
-      return -1;
+      return -1; // remember this condition 
     }
 
 
@@ -40,7 +40,7 @@ int findMinimumCost(string str) {
       st.pop();
     }
 
-    return (a+1)/2 + (b+1)/2;
+    return (a+1)/2 + (b+1)/2; //remember this formula
 
 
 
