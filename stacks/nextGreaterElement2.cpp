@@ -19,6 +19,15 @@ vector<int> nextGreaterElements(vector<int>& nums) {
                 nge[i] = st.top();
             }
         }
+        // if(i < n){
+        //   if(st.empty()){
+        //    nge[i] = -1;
+        //    st.push(arr2[i]);
+        // }else{
+        //     nge[i] = st.top();
+        //     st.push(arr2[i]);
+        // }
+        // }
 
         st.push(nums[i % n]);
     }
