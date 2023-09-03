@@ -13,6 +13,18 @@ public:
 	}
 };
 
+int heightTree(Node *root){
+
+	if(root == NULL){
+		return -1;
+	}
+
+	int lh = heightTree(root->left);
+	int rh = heightTree(root->right);
+
+	return max(lh,rh) + 1;
+}
+
 Node * buildTree(){
 
 	int n;
