@@ -25,6 +25,26 @@ int heightTree(Node *root){
 	return max(lh,rh) + 1;
 }
 
+void mirrorTree(Node * root){
+
+	if(root == NULL){
+		return;
+	}
+	mirrorTree(root->left);
+	mirrorTree(root->right);
+	swap(root->left,root->right);
+
+}
+
+int diameter(Node* root){
+	if(root == NULL) return 0;
+
+	int hlst = heightTree(root->left);
+	int rhst = heightTree(root->right);
+
+	return max(hlst+rhst+2,max(diameter(root->left),diameter(root->right)));
+}
+
 Node * buildTree(){
 
 	int n;
