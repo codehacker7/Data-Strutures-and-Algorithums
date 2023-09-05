@@ -1,44 +1,26 @@
 #include<iostream>
 using namespace std;
+    string nums[] = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
+    void getAllCombinations(string s,int index,int length,string output){
 
-void getAllCombinations(string nums[], int index,string number,string answer){
+        if(index == length){
+            cout<<output<<endl;
+            return;
+        }
 
-
-    if(index == number.length()){
-        cout<<answer<<endl;
-        return;
+        int length1 = nums[s[index]-'0'].length();
+        for(int i=0; i<length1 ;i++){
+        output = output +  nums[s[index] - '0'][i];
+        getAllCombinations(s,index+1,length,output);
+        output = output.substr(0,output.length()-1);
+        }
     }
 
-
-
-
-    int length = nums[ number[index] - '0'- 1].length();
-    
-    for(int i=0;i<length;i++){
-        
-        answer +=  nums[number[index] - '0' - 1][i];
-        getAllCombinations(nums,index+1,number,answer);
-        answer = answer.substr(0,answer.length()-1);
-
-    }
-
-
-
-
-
-
-}
 
 int main(){
 
-    string nums[] = {"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-
-    
-    getAllCombinations(nums,0,"23","");
-
-
-
-
-    return 0;
+    string s = "23";
+    int n = s.length();
+    getAllCombinations(s,0,n,"");
 }
