@@ -33,7 +33,7 @@ using namespace std;
 int  main(){
 
 
-   string digits = "abc";
+   string digits = "23";
 
     getAllCombinations(digits,"",0,digits.length());
 
