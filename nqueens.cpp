@@ -98,7 +98,7 @@ bool nqueens(int board[100][100],int n,int rows){
     
     }
 
-                    return false;
+        return false;
 
 
 

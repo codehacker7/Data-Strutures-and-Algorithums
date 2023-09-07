@@ -79,11 +79,11 @@ bool nqueens(int row,int grid[100][100],int n){
                  
                  return  true;
               }
-
+              grid[row][j] = 0;
 
         }
 
-        grid[row][j] = 0;
+
 
    }
  
