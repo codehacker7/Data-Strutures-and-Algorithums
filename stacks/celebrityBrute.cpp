@@ -15,7 +15,7 @@ int celebrity(vector<vector<int>>& M, int n) {
         }
         
         if (flag) {
-            return c; // Found a potential celebrity
+            return c; // Found a  celebrity
         }
     }
     
