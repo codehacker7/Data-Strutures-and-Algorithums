@@ -62,4 +62,30 @@ void printRange(node* root, int k1, int k2) {
 	printRange(root->right, k1, k2);
 }
 
+class Pair{
+    public:
+    int height;
+    bool isbalanced;
+    Pair(){
+        height = 0;
+        isbalanced = true;
+    }
+}
+
+Pair checkbalanced(node* root){
+
+    Pair p;
+    if(root == NULL){
+        return p;
+    }
+
+    Pair left = checkbalanced(root->left);
+    Pair right = checkbalanced(root->right);
+
+    p.height = left.height + right.height + 1;
+    p.isbalanced = left.isbalanced && right.isbalanced && (abs(left.height - right.height)<=1)
+
+    return p;
+}
+
 }
