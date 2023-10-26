@@ -5,7 +5,7 @@ class node
 {
 public:
 	int data;
-	node* left, *right;
+	node* left, *right; 
 	node(int d) {
 		data = d;
 		left = right = NULL;
@@ -30,7 +30,7 @@ LinkedList BSTtoLL(node* root) {
 
     if(root->left != NULL && root->right != NULL){ // this means we have both left and right subtree
         LinkedList left = BSTtoLL(root->left);
-        LinkedList right = BSTtoLL(root->left);
+        LinkedList right = BSTtoLL(root->right);
         left.tail->right = root;
         root->right = right.head;
         l.head = left.head;
@@ -53,6 +53,7 @@ LinkedList BSTtoLL(node* root) {
         l.head = l.tail = root;
         return l;
     }
+}
 
 void printRange(node* root, int k1, int k2) {
 	if (root == NULL) return;
@@ -87,5 +88,30 @@ Pair checkbalanced(node* root){
 
     return p;
 }
+
+bool isbalanced(node* root){
+
+    if(root == NULL){
+        return true;
+    }
+
+    int lh = height(root->left);
+    int rh = height(root->right);
+
+    return (abs(lh - rh)<=1) && isbalanced(root->left) && isbalanced(root->left);;
+}
+
+node* arrayBalancedBST(int *a, int s, int e) {
+
+    if(s > e){
+    	return NULL;
+    }
+
+    int m = (s + e) / 2;
+	node* root = new node(a[m]);
+    root->left = arrayBalancedBST(a,s,m-1);
+    root->right = arrayBalancedBST(a,m+1,e);
+
+    return root;
 
 }
