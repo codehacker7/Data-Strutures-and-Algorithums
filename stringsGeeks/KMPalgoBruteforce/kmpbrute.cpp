@@ -1,3 +1,4 @@
+//This can be solved using KMP Algo but not worth learning
 class Solution {
 public:
     int strStr(string haystack, string needle) {
