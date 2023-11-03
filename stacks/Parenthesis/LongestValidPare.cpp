@@ -28,3 +28,4 @@ public:
         return max(maxi, end); // Return the maximum of maxi and end.
     }
 };
+
