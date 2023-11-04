@@ -14,7 +14,6 @@ public:
     
 };
 
-
 class hashmap{
      int ts;
      node** a;
