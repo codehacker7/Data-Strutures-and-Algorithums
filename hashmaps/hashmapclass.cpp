@@ -75,4 +75,60 @@ class hashmap{
             } 
         }
     }
+
+
+    node* search(string key) {
+		int hashIndex = hashFunction(key);
+		node* head = a[hashIndex];
+		while (head != NULL) {
+			if (head->key == key) return head;
+
+			head = head->next;
+		}
+		return head; 
+	}
+
+	int& operator[](string key) {
+		node* x = search(key);
+		if (x == NULL) {
+			int g;
+			insert(key, g); // g can be anything because yeh update // ho jaegi abhi jab hum bucket return krenge main ko
+			x = search(key);
+			return x->data;
+		}
+		return x->data;
+	}
+
+    void print() {
+		for (int i = 0; i < ts; ++i)
+		{
+			cout << i << "-->";
+			node* head = a[i];
+
+			while (head != NULL) {
+				cout << "(" << head->key << ", " << head->data << ") ";
+				head = head->next;
+			}
+			cout << endl;
+		}
+	}
+}
+
+int main() {
+
+	hashmap h;
+
+	h.insert("Mango", 100);
+	h.insert("Apple", 150);
+	h.insert("Mausmi", 90);
+	h.insert("Guava", 900);
+
+	// ek hi function multiple kaam kr dega
+	h["Pineapple"] = 20; // Insertion
+	h["Pineapple"] = 200; // Updation
+	cout << h["Pineapple"] << endl; // Search
+
+	h.print();
+
+	return 0;
 }
