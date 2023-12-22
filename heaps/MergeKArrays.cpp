@@ -1,5 +1,6 @@
 class data{
     public:
+    int val;
     int apos;
     int vpos;
 
@@ -10,10 +11,11 @@ class data{
     }
 };
 
-short mycomp{
-
+class mycomp{
+    public:
     bool operator()(data &d1,data &d2){
         return d1.val > d2.val;
+        //return d1[vpos][apos] > d2[vpos][apos];
     }
 
 };
