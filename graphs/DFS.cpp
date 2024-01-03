@@ -80,6 +80,7 @@ class Graph{
 
         int component = 1;
 
+        //This is to account for other compenents of a graph
         for(auto p:adj){
             if(!visited[p.first]){
                 DFSHelper(p.first,visited);
