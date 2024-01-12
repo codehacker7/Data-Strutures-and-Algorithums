@@ -1,36 +1,35 @@
-#include <vector>
-#include <map>
-#include <queue>
-
 class Solution {
 public:
-    std::vector<int> topKFrequent(std::vector<int>& nums, int k) {
-        std::map<int, int> freq;
-        std::vector<int> ans;
+    vector<int> topKFrequent(vector<int>& nums, int k) {
 
-        for (int i = 0; i < nums.size(); i++) {
-            freq[nums[i]]++;
+        priority_queue<pair<int,int>> pq; // i want to make a max heap   
+        map<int,int> mp;//this mp is going to store freq with element
+
+        for(int i=0;i<nums.size();i++){
+            int element = nums[i];
+            mp[element]++;
+        }
+        
+        for(auto p:mp){
+            int element = p.first;
+            int freq = p.second;
+
+            pq.push({freq,element});
         }
 
-        std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> minHeap;
-
-        for (auto i : freq) {
-            int element = i.first;
-            int frequency = i.second;
-
-            minHeap.push({frequency, element});
-
-            if (minHeap.size() > k) {
-                minHeap.pop();
-            }
+        int count =0;
+        vector<int> ans;
+        
+        while(count < k){
+            pair p = pq.top();
+            pq.pop();
+            ans.push_back(p.second);
+            count++;
         }
-
-        while (!minHeap.empty()) {
-            ans.push_back(minHeap.top().second);
-            minHeap.pop();
-        }
-
 
         return ans;
+
+
+
     }
 };
