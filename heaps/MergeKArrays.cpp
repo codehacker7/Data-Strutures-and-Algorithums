@@ -31,7 +31,7 @@ int main(){
 
     for(int i=0;i<k;i++) //k is number of array
 {
-    data d(arr[i][0],i,0);
+    data d(arr[i][0],i,0); // this is representing the {value,arrayPosition,Position of element in the array}
     pq.push(d);
 }
 vector<int> ans;
