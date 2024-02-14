@@ -44,9 +44,27 @@ public:
         int maxsum = kadens(nums);
         int minsum = kadens2(nums);//minimum sum subbary
 
+
+        // if we are able to get minimum sum subarray then we can easily find maximum sum subaarray by using
+
+        // SUM = MINIMUMSUM + MAXIMUM SUM
+        //MAXIMUM SUM = TOTALSUM  - MINIMUMSUM
+
         
 
         int circularmaxsum = totalsum - minsum;
+
+        /*
+        NOW AN EDGE CASE WHERE ARR = [-1,-1,-1]
+        SUM = -3
+        MINSUM = -3
+        MAXSUM = -1
+       
+        CIRCULAR SUM = -3-(-3)  = 0
+        BUT THERE IS NO SUBAARY WHICH HAS 0 SUM SO CHECK IF (MAXUM > 0  )
+        
+        */
+
 
         if(maxsum > 0){
 
