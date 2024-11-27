@@ -13,8 +13,7 @@ using namespace std;
         char ch = digits[index];
         int ch1 = ch - '0';
 
-        int number1 = nums[ch1];
-        int number = number1 - 1;
+        int number = ch1 - 1;
         string value = nums[number];
        
         for(int i=0; i < value.length(); i++){
